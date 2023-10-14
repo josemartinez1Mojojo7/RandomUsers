@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <div id="container">
+          Lista de Usuarios Random
+        </div>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-segment scrollable mode="md" color="primary" (ionChange)="cambioGenero($event)">
+      <ion-segment-button mode="md" *ngFor="let gender of genders" [value]="gender">
+        <ion-label text-capitalize>{{gender}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-card-content>
+      <ion-list *ngFor="let user of users; let i = index">
+
+        <ion-item (click)="verUser(user)">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" [src]="user.picture.medium" />
+          </ion-thumbnail>
+          <ion-label>{{user.name.first}} {{user.name.last}}</ion-label>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+    <ion-infinite-scroll threshold="150px" position="bottom" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" class="loadingspinner" loadingText="Cargando Informacion...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-card>
+</ion-content>

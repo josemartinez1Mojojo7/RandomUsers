@@ -1,0 +1,25 @@
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <div id="container">
+        Contactos
+      </div>
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="dataLocalService.user.length === 0">
+    <p id="container">Sin Contactos</p>
+  </ion-card-content>
+  <ion-card-content *ngIf="dataLocalService.user.length > 0">
+    <ion-list *ngFor="let user of dataLocalService.user; let i = index">
+
+      <ion-item (click)="verUser(user)">
+        <ion-thumbnail slot="start">
+          <img alt="Silhouette of mountains" [src]="user.picture.medium" />
+        </ion-thumbnail>
+        <ion-label>{{user.name.first}} {{user.name.last}}</ion-label>
+      </ion-item>
+
+    </ion-list>
+  </ion-card-content>
+</ion-card>

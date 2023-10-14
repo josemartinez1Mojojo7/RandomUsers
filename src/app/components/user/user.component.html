@@ -1,3 +1,22 @@
-<p>
-  user works!
-</p>
+<ion-card>
+  <img class="image" alt="user_foto" [src]="user?.picture?.large" />
+  <div class="user-more">
+    <ion-button (click)="more()" fill="clear" >
+      <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+    </ion-button>
+  </div>
+  <ion-card-header>
+    <ion-card-subtitle>Hola, Soy</ion-card-subtitle>
+    <ion-card-title>{{user?.name.first}} {{user?.name.last}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+      <ion-icon name="mail-outline"></ion-icon> {{user?.email}}
+      <br>
+      <ion-icon name="calendar-number-outline"></ion-icon> {{user?.dob.age}} años
+      <br>
+      <ion-icon name="navigate-outline"></ion-icon> {{user?.location.country}}
+      <br>
+      <ion-icon name="call-outline"></ion-icon> {{user?.cell}}
+  </ion-card-content>
+</ion-card>

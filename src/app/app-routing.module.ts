@@ -1,10 +1,33 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { UsersComponent } from './pages/users/users.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('../app/pages/tabs/tabs.module').then(m => m.TabsPageModule)
+    path: 'home',
+    component:HomeComponent
+  },
+  {
+    path:'users',
+    component:UsersComponent
+  },
+  {
+    path:'contacts',
+    component:ContactsComponent
+  },
+  {
+    path:'user-detail',
+    component:UserDetailComponent
+  },
+  {
+    path:'',
+    component:HomeComponent
+  },
+  {
+    path:'**', redirectTo:'home', pathMatch:'full'
   }
 ];
 

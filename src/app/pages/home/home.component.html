@@ -1,8 +1,10 @@
-<div id="container">
-  <h2>Usuarios Random</h2>
-  <app-user [user]="user"></app-user>
-  <ion-button (click)="cargarUser()" >
-    <ion-icon name="sync-outline"></ion-icon> Generar Usuario
-  </ion-button>
-</div>
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <h2>Usuarios Random</h2>
+    <app-user [user]="user"></app-user>
+    <ion-button (click)="cargarUser()" >
+      <ion-icon name="sync-outline"></ion-icon> Generar Usuario
+    </ion-button>
+  </div>
+</ion-content>
 
